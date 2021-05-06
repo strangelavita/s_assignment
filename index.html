@@ -8,59 +8,73 @@
 </head>
 <body>
     <h1> Program to calculate applicable tax</h1>
-    <h4>Refresh the page before every use </h4>
+    
     <h3>Please enter your Gross income </h3>
-    <br> <input type="text" id="grs" ><br><br>
+    
+    <br> <input type="number" id="grs" ><br><br>
     <button onclick="f1()">calculate my tax </button>
 <br><hr>
     <h1> For the given net income calculating gross income </h1>
     <h3> Please enter your net salary (Net salary = Gross salary - Tax ammount)</h3>
-    <p>For now program will only work if your gross salary is less than 1,00,00,000</p>
-    <br><input type= "text" id="net"><br><br>
+    
+    
+    <br><input type= "number" id="net"><br><br>
     <button onclick="f2()">Calculate my gross income </button>
 
-    <h4>Refresh the page before every use </h4>
 
-    <script>
-        let gross = document.getElementById("grs").value;
-        let net = document.getElementById("net").value;
+    <script type="text/javascript">
+        var gross = document.getElementById("grs").value;
+        var net = document.getElementById("net").value;
 
         function f1(){
-             if (gross < 0){alert ("invalid input as salary can't be negative");}
-             else if (gross <= 400000){
-                 alert ("Total tax will be "+ 0);
+            var gross = document.getElementById("grs").value;
+            var net = document.getElementById("net").value;
+             if(gross < 0){
+                 alert("invalid input as salary can't be negative");
+                }
+
+             else if((0 < gross) && (gross <= 400000)){
+                 document.write("Total tax will be 0");
              }
-             else if (gross <= 800000){
+
+             else if((400000< gross)&&(gross <= 800000))
+             {
                  let x1 = 150000 * 0.025;
                  let y1 = gross - 300000;
                  let tax1 = x1  + y1 * 0.1;
-                 alert ("Total tax will be "+tax1);
+                 document.write("Total tax will be "+tax1);
              }
-             else if (gross <= 10000000){
+
+             else if((800000 < gross)&&(gross <= 10000000)){
                  let x2 = 150000 * 0.025;
                  let y2 = 500000 * 0.1;
                  let z2 = gross - 800000;
                  let tax2 = x2+y2+(z2*0.25);
-                 alert("Total tax will be "+tax2);
+                 document.write("Total tax will be "+tax2);
              }
+
              else{
                  let z3 = gross - 10000000;
                  let tax3 = 3750 + 50000 + 2300000 + (z3*0.3);
-                 alert ("Total tax will be " + tax3);
+                 document.write("Total tax will be " + tax3);
              }
          }
+
         function f2(){
+            var gross = document.getElementById("grs").value;
+            var net = document.getElementById("net").value;
+
             if(net < 0){alert("error please provide a valid input") ;}
             else if (net <= 400000){
                 alert ("your gross income is "+net);
             }
-            else if (net <= 800000){
+            else if (net <= 746250){
                 let x = net - 150000 - 146250;
                 let y = (x * 10)/9;
                 let z = 300000 + y
                 alert("your gross salary is "+z);          
             }
-            else if (net <= 10000000){
+            else if (net <= 7646250){
                 let x = net - 150000 - 146250 - 450000;
                 let y = (x * 92)/69;
                 let z = 800000 + y;
@@ -73,6 +87,8 @@
                 alert("Your gross salary is "+z);
             }
         }
+
     </script>
+
 </body>
 </html>
